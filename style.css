@@ -88,6 +88,11 @@ button {
     padding: 50px;
     box-shadow: 2px 2px 10px black;
     margin-bottom: 100px;
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
 }
 
 .ticket h3 {

@@ -7,6 +7,7 @@ const discountOver65 = 0.4;
 let namePassenger = document.getElementById("namePassenger");
 let kmToRun = document.getElementById("kmToRun");
 let agePassenger = document.getElementById("select");
+let showTicket = document.getElementById("js");
 
 // Variabili bottoni da premere
 let processData = document.getElementById("process-data");
@@ -32,6 +33,8 @@ processData.addEventListener("click",
 
     function() {
 
+        showTicket.classList.add("visible"); 
+
         document.getElementById("traveller-name").innerHTML = namePassenger.value;
         document.getElementById("coach").innerHTML = randomCoach;
         document.getElementById("CP-code").innerHTML = randomCpCode;
@@ -55,6 +58,8 @@ processData.addEventListener("click",
 discardData.addEventListener("click",
 
     function() {
+
+        showTicket.classList.remove("visible");
 
         namePassenger.value = "";
         kmToRun.value = "";
