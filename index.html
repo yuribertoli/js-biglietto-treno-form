@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Ticket Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <h1>calcola il prezzo del tuo biglietto</h1>
+    </header>
+
+    <main>
+
+        <!-- Parte in alto -->
+        <div class="form">
+
+            <div class="info">
+
+                <div class="left-info">
+                    <h4>Nome Cognome</h4>
+                    <input type="text">
+                </div>
+
+                <div class="central-info">
+                    <h4>Km da percorrere</h4>
+                    <input type="number" min="0">
+                </div>
+
+                <div class="right-info">
+                    <h4>Fascia d'età</h4>
+                    <select name="ages">
+                        <option value="Minorenne">Minorenne</option>
+                        <option value="Maggiorenne">Maggiorenne</option>
+                        <option value="Over65">Over65</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="events">
+                <button>Genera</button>
+                <button>Annulla</button>
+            </div>
+        
+        </div>
+
+        <h2>il tuo biglietto</h2>
+
+        <!-- Parte in basso -->
+        <div class="ticket">
+
+            <h3>dettaglio passeggero</h3>
+
+            <div class="ticket-info clearfix">
+
+                <div class="passenger-name">
+                    <h4>nome passeggero</h4>
+                    <span id="traveller-name"></span>
+                </div>
+
+                <div class="ticket-details">
+                    
+                    <div>
+                       <h4>Offerta</h4> 
+                       <span id="ticket-type"></span>
+                    </div>
+
+                    <div>
+                        <h4>Carrozza</h4>
+                        <span id="coach"></span>
+                    </div>
+
+                    <div>
+                        <h4>Codice CP</h4>
+                        <span id="CP-code"></span>
+                    </div>
+
+                    <div>
+                        <h4>Costo Biglietto</h4>
+                        <span id="price"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>
