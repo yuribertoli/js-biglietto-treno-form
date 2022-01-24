@@ -1,11 +1,9 @@
 //Definisco le costanti 
-const pricePerKm = 0.21;
 const discountUnderAge = 0.2;
 const discountOver65 = 0.4;
 
 //Definisco le variabili iniziali
 let namePassenger = document.getElementById("namePassenger");
-let kmToRun = document.getElementById("kmToRun");
 let agePassenger = document.getElementById("select");
 let showTicket = document.getElementById("js");
 
@@ -21,24 +19,34 @@ let randomCpCode = Math.floor(Math.random() * (max - min) + min);
 // Variabili per numero carrozza
 let randomCoach = Math.floor(Math.random() * 9) + 1;
 
-//Calcolo prezzo biglietto standard
-let priceTicket = kmToRun.value * pricePerKm;
-
-//Calcolo prezzi biglietti scontati
-let priceDiscounted18 = priceTicket - (priceTicket * discountUnderAge);
-let priceDiscounted65 = priceTicket - (priceTicket * discountOver65);
 
 //Click su bottone "Genera"
 processData.addEventListener("click",
 
     function() {
 
+        //Aggiungo classe per visualizzare biglietto
         showTicket.classList.add("visible"); 
 
+        //Inserisco dati che non cambiano
         document.getElementById("traveller-name").innerHTML = namePassenger.value;
         document.getElementById("coach").innerHTML = randomCoach;
         document.getElementById("CP-code").innerHTML = randomCpCode;
 
+        //Costante per prezzo per Km
+        const pricePerKm = 0.21;
+
+        //Variabile da richiamare per il prezzo
+        let kmToRun = document.getElementById("kmToRun");
+
+        //Calcolo prezzo biglietto standard
+        let priceTicket = kmToRun.value * pricePerKm;
+
+        //Calcolo prezzi biglietti scontati
+        let priceDiscounted18 = priceTicket - (priceTicket * discountUnderAge);
+        let priceDiscounted65 = priceTicket - (priceTicket * discountOver65);
+
+        //Selezione scelta 
         if (agePassenger.value == "Minorenne") {
             document.getElementById("price").innerHTML = priceDiscounted18.toFixed(2) + "€";
             document.getElementById("ticket-type").innerHTML = "Biglietto Under18";
@@ -63,6 +71,9 @@ discardData.addEventListener("click",
 
         namePassenger.value = "";
         kmToRun.value = "";
+
+        //optional: per refreshare la pagina
+        discardData = window.location.reload();
 
     }
 
