@@ -51,6 +51,18 @@ processData.addEventListener("click",
 
 );
 
+//Click su bottone "Annulla"
+discardData.addEventListener("click",
+
+    function() {
+
+        namePassenger.value = "";
+        kmToRun.value = "";
+
+    }
+
+)
+
 
 
 
