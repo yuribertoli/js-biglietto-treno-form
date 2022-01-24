@@ -1,4 +1,5 @@
 //Definisco le costanti 
+const pricePerKm = 0.21;
 const discountUnderAge = 0.2;
 const discountOver65 = 0.4;
 
@@ -6,6 +7,7 @@ const discountOver65 = 0.4;
 let namePassenger = document.getElementById("namePassenger");
 let agePassenger = document.getElementById("select");
 let showTicket = document.getElementById("js");
+let kmToRun = document.getElementById("kmToRun");
 
 // Variabili bottoni da premere
 let processData = document.getElementById("process-data");
@@ -23,39 +25,38 @@ let randomCoach = Math.floor(Math.random() * 9) + 1;
 //Click su bottone "Genera"
 processData.addEventListener("click",
 
-    function() {
+    function() {  
 
-        //Aggiungo classe per visualizzare biglietto
-        showTicket.classList.add("visible"); 
-
-        //Inserisco dati che non cambiano
-        document.getElementById("traveller-name").innerHTML = namePassenger.value;
-        document.getElementById("coach").innerHTML = randomCoach;
-        document.getElementById("CP-code").innerHTML = randomCpCode;
-
-        //Costante per prezzo per Km
-        const pricePerKm = 0.21;
-
-        //Variabile da richiamare per il prezzo
-        let kmToRun = document.getElementById("kmToRun");
-
-        //Calcolo prezzo biglietto standard
-        let priceTicket = kmToRun.value * pricePerKm;
-
-        //Calcolo prezzi biglietti scontati
-        let priceDiscounted18 = priceTicket - (priceTicket * discountUnderAge);
-        let priceDiscounted65 = priceTicket - (priceTicket * discountOver65);
-
-        //Selezione scelta 
-        if (agePassenger.value == "Minorenne") {
-            document.getElementById("price").innerHTML = priceDiscounted18.toFixed(2) + "€";
-            document.getElementById("ticket-type").innerHTML = "Biglietto Under18";
-        } else if (agePassenger.value == "Over65") {
-            document.getElementById("price").innerHTML = priceDiscounted65.toFixed(2) + "€";
-            document.getElementById("ticket-type").innerHTML = "Biglietto Over65";
+        if (namePassenger.value == "" || kmToRun.value == "") {
+            alert("Inserisci un valore corretto per tutte le sezioni");
         } else {
-            document.getElementById("price").innerHTML = priceTicket.toFixed(2) + "€";
-            document.getElementById("ticket-type").innerHTML = "Biglietto Standard";
+            //Aggiungo classe per visualizzare biglietto
+            showTicket.classList.add("visible"); 
+
+            //Inserisco dati che non cambiano
+            document.getElementById("traveller-name").innerHTML = namePassenger.value;
+            document.getElementById("coach").innerHTML = randomCoach;
+            document.getElementById("CP-code").innerHTML = randomCpCode;
+
+            //Calcolo prezzo biglietto standard
+            let priceTicket = kmToRun.value * pricePerKm;
+
+            //Calcolo prezzi biglietti scontati
+            let priceDiscounted18 = priceTicket - (priceTicket * discountUnderAge);
+            let priceDiscounted65 = priceTicket - (priceTicket * discountOver65);
+
+            //Selezione scelta 
+            if (agePassenger.value == "Minorenne") {
+                document.getElementById("price").innerHTML = priceDiscounted18.toFixed(2) + "€";
+                document.getElementById("ticket-type").innerHTML = "Biglietto Under18";
+            } else if (agePassenger.value == "Over65") {
+                document.getElementById("price").innerHTML = priceDiscounted65.toFixed(2) + "€";
+                document.getElementById("ticket-type").innerHTML = "Biglietto Over65";
+            } else {
+                document.getElementById("price").innerHTML = priceTicket.toFixed(2) + "€";
+                document.getElementById("ticket-type").innerHTML = "Biglietto Standard";
+            }
+
         } 
 
     }
