@@ -67,11 +67,12 @@ processData.addEventListener("click",
 discardData.addEventListener("click",
 
     function() {
-
+        
         showTicket.classList.remove("visible");
 
         namePassenger.value = "";
         kmToRun.value = "";
+        agePassenger.value = "Maggiorenne";
 
         //optional: per refreshare la pagina
         discardData = window.location.reload();
